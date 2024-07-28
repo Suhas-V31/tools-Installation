@@ -19,3 +19,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 # Verify Docker installation
 docker --version
+
+# Add current user to the docker group
+sudo usermod -aG docker $USER
+
+# Activate the changes to groups
+newgrp docker
