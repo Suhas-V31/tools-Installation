@@ -14,16 +14,8 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
-# Create the docker group if it does not exist
-sudo groupadd -f docker
-
 # Add the current user to the docker group
 sudo usermod -aG docker $USER
 
-# Activate the changes to groups
-newgrp docker
-
 # Verify Docker installation
 docker --version
-
-
