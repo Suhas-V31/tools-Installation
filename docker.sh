@@ -14,17 +14,16 @@ echo \
   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 
+# Create the docker group if it does not exist
+sudo groupadd -f docker
 
-# Install the Docker packages
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-# Create the docker group
-sudo groupadd docker
-
-# Add your user to the docker group
+# Add the current user to the docker group
 sudo usermod -aG docker $USER
 
-# run the following command to activate the changes to groups
+# Activate the changes to groups
 newgrp docker
+
+# Verify Docker installation
+docker --version
 
 
